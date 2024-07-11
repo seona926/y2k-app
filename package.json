@@ -1,8 +1,7 @@
 {
   "name": "y2k-app",
-  "version": "1.0.0",
-  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
-  "main": "postcss.config.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.19",
-    "next": "^14.2.4",
+    "next": "^14.2.5",
+    "postcss": "^8.4.39",
     "react": "^18",
     "react-dom": "^18",
     "tailwind": "^4.0.0",

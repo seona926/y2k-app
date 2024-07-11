@@ -26,6 +26,12 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@layer components {
+  .main-container {
+    @apply flex min-h-screen items-center justify-center;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

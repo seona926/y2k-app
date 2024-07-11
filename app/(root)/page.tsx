@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useContext } from "react";
 // import { AuthContext } from "../contexts/AuthContext";
 // import { useNavigate } from "react-router-dom";
 // import styles from "../styles/main.module.css";
 import { useRouter } from "next/navigation";
 
-const MainPage: React.FC = () => {
+export default function MainPage() {
   const user = { nickname: "Sophia" }; // Assuming user info is stored here
   const router = useRouter();
 
@@ -26,7 +28,7 @@ const MainPage: React.FC = () => {
 
   return (
     <>
-      <div className="text-xl font-medium mt-12">My Profile</div>
+      <div className="text-xl font-bold mt-12">My Profile</div>
       <div className="h-14vh w-full flex justify-end items-center bg-white mt-2.5 mb-2.5 border border-gray-400 rounded">
         <div className="flex flex-col items-end mr-3.5">
           <span className="text-2xl font-medium">
@@ -47,13 +49,13 @@ const MainPage: React.FC = () => {
             key={room.id}
             className="h-20 flex p-2.5 items-center justify-start bg-white rounded-lg shadow-md my-0.5 relative text-sm"
           >
-            <span className="flex items-center justify-center absolute top-[17%] left-[2%] transform translate-x-[-50%] translate-y-[-50%] z-10 bg-red-600 text-white text-xs font-bold w-5.5 h-5.5 rounded-full">
+            <span className="flex items-center justify-center absolute top-[17%] left-[2%] transform translate-x-[-50%] translate-y-[-50%] z-10 bg-red-600 text-white text-xs font-bold w-4 h-4 rounded-full">
               N
             </span>
             <img
               src={`https://api.dicebear.com/8.x/pixel-art/svg?seed=John${room.id}-${room.nickname}.svg`}
               alt="Avatar"
-              className="w-15 h-15 rounded-full border border-gray-300 bg-white p-0.5 object-cover mr-2.5"
+              className="w-12 h-15 rounded-full border border-gray-300 bg-white p-0.5 object-cover mr-2.5"
             />
             <div className="ml-2.5 w-[59%]">
               <div className="text-lg font-medium mb-1.25">{room.nickname}</div>
@@ -74,6 +76,4 @@ const MainPage: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default MainPage;
+}

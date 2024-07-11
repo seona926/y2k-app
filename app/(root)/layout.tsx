@@ -1,12 +1,5 @@
 import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: {
-    template: "%s | Next Movies",
-    default: "Loading...",
-  },
-  description: "The best movies on the best framework",
-};
+import "../globals.css";
 
 export default function RootLayout({
   children,
@@ -15,7 +8,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main>
+          <section className="main-container">
+            <div className="w-full max-w-4xl">{children}</div>
+          </section>
+        </main>
+      </body>
     </html>
   );
 }
