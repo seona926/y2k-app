@@ -11,7 +11,7 @@ export default function RootLayout({
       <body>
         <main>
           <section className="main-container">
-            <div className="w-full max-w-4xl">{children}</div>
+            <div className="w-full max-w-4xl p-10">{children}</div>
           </section>
         </main>
       </body>

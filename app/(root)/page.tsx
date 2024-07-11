@@ -49,8 +49,8 @@ export default function MainPage() {
           </div>
         </Link>
       </div>
-      <div className="text-xl font-bold mt-12">My Profile</div>
-      <div className="h-14vh w-full flex justify-end items-center bg-white mt-2.5 mb-2.5 border border-gray-400 rounded">
+      <div className="text-xl font-bold mt-3">My Profile</div>
+      <div className="h-32 w-full flex justify-end items-center bg-white mt-2.5 mb-2.5 border border-gray-400 rounded">
         <div className="flex flex-col items-end mr-3.5">
           <span className="text-2xl font-medium">
             {user?.nickname || "Lisboa"}
