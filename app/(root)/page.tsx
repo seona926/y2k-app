@@ -49,8 +49,10 @@ export default function MainPage() {
           </div>
         </Link>
       </div>
-      <div className="text-xl font-bold mt-3">My Profile</div>
-      <div className="h-32 w-full flex justify-end items-center bg-white mt-2.5 mb-2.5 border border-gray-400 rounded">
+      <div className="text-2xl font-bold mt-3 underline decoration-teal-500">
+        My Profile
+      </div>
+      <div className="h-32 w-full flex justify-end items-center bg-white mt-2.5 mb-2.5 border border-gray-400 rounded bg-stone-50/[0.43]">
         <div className="flex flex-col items-end mr-3.5">
           <span className="text-2xl font-medium">
             {user?.nickname || "Lisboa"}
@@ -60,42 +62,43 @@ export default function MainPage() {
         <img
           src="https://api.dicebear.com/8.x/pixel-art/svg?seed=James.svg"
           alt="Avatar"
-          className="w-24 h-24 rounded-full bg-white p-2 object-cover border border-gray-400 mr-2.5"
+          className="w-24 h-24 rounded-full bg-white p-2 object-cover border-2 border-black mr-2.5"
         />
       </div>
-      <div className="text-xl font-medium mt-5.5 mb-2.5">Messages</div>
-      <div className="grid grid-cols-1 gap-2.5 mb-15">
+      <div className="text-2xl font-bold mt-6 mb-3 underline decoration-teal-500">
+        Messages
+      </div>
+      <div className="grid grid-cols-1 gap-2.5 mb-15 w-full">
         {chatRooms.map((room) => (
           <div
             key={room.id}
-            className="h-20 flex p-2.5 items-center justify-start bg-white rounded-lg shadow-md my-0.5 relative text-sm"
+            className="h-20 w-full flex p-5 items-center justify-between bg-stone-50 rounded-lg shadow-md my-0.5 relative text-sm"
           >
-            <span className="flex items-center justify-center absolute top-[17%] left-[2%] transform translate-x-[-50%] translate-y-[-50%] z-10 bg-red-600 text-white text-xs font-bold w-4 h-4 rounded-full">
-              N
-            </span>
-            <img
-              src={`https://api.dicebear.com/8.x/pixel-art/svg?seed=John${room.id}-${room.nickname}.svg`}
-              alt="Avatar"
-              className="w-12 h-15 rounded-full border border-gray-300 bg-white p-0.5 object-cover mr-2.5"
-            />
-            <div className="ml-2.5 w-[59%]">
-              <div className="text-lg font-medium mb-1.25">{room.nickname}</div>
-              <p style={{ margin: "0px" }}>
-                {room.message.length > 20
-                  ? `${room.message.slice(0, 25)}...`
-                  : room.message}
-              </p>
+            <div className="flex flex-row w-full">
+              <span className="flex p-1.5 items-center justify-center absolute top-[12%] left-[-0.2%] transform translate-x-[-50%] translate-y-[-50%] z-10 bg-red-600 text-white text-xs font-bold w-5 h-5 rounded-full">
+                N
+              </span>
+              <img
+                src={`https://api.dicebear.com/8.x/pixel-art/svg?seed=John${room.id}-${room.nickname}.svg`}
+                alt="Avatar"
+                className="w-14 h-14 rounded-full border-[2px] border-black bg-white p-0.5 object-cover mr-2.5"
+              />
+              <div className="ml-2.5 w-[59%]">
+                <div className="text-lg font-bold mb-1.25">{room.nickname}</div>
+                <p style={{ margin: "0px" }}>
+                  {room.message.length > 20
+                    ? `${room.message.slice(0, 25)}...`
+                    : room.message}
+                </p>
+              </div>
             </div>
-            <div
-              className="flex justify-center items-center p-1.5 w-[3.2em] bg-yellow-300 rounded font-bold text-gray-700 ml-1"
-              onClick={handleSendClick}
-            >
+            <div className="btn-border-black" onClick={handleSendClick}>
               OPEN
             </div>
           </div>
         ))}
       </div>
-      <button className="w-full h-11 bg-teal-500 text-slate-50 mt-8 mb-10 border-none text-xl font-bold rounded-md">
+      <button className="w-full h-11 btn-green-to-blue text-slate-50 mt-8 mb-10 border-none text-xl font-bold rounded-md cursor-pointer">
         <Link href="/match">Find My Soulmate</Link>
       </button>
     </>

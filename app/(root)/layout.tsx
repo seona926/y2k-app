@@ -8,10 +8,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gradient-to-b from-fuchsia-300 to-red-300">
         <main>
           <section className="main-container">
-            <div className="w-full max-w-4xl p-10">{children}</div>
+            <div className="w-full max-w-3xl p-10">{children}</div>
           </section>
         </main>
       </body>
