@@ -24,7 +24,7 @@ export default function MainPage() {
   ];
 
   const handleSendClick = () => {
-    router.push("/read-message/l_eein1234");
+    router.push("/message/read/l_eein1234");
   };
 
   return (
