@@ -1,8 +1,43 @@
-import React from "react";
+"use client";
 
-export default function FindMatch() {
-  return <div>find-match</div>;
-}
+import React from "react";
+import { useRouter } from "next/navigation";
+
+const FindMatchesPage: React.FC = () => {
+  const router = useRouter();
+
+  const handleSelectQuestions = (numQuestions: number) => {
+    router.push(`/questions/${numQuestions}`); // Pass the number of questions as a URL parameter
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="text-2xl text-bold">질문 갯수를 골라주세요!</div>
+      <div className="flex flex-col items-center justify-center h-2/6">
+        <button
+          className="h-11 w-96 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
+          onClick={() => handleSelectQuestions(10)}
+        >
+          10개 👉 간단하게!
+        </button>
+        <button
+          className="h-11 w-96 mt-5 mb-5 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
+          onClick={() => handleSelectQuestions(15)}
+        >
+          15개 👉 보다 정밀하게!
+        </button>
+        <button
+          className="h-11 w-96 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
+          onClick={() => handleSelectQuestions(20)}
+        >
+          20개 👉 나와 꼭맞는 단짝 찾기!
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default FindMatchesPage;
 
 /*
 .container {

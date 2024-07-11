@@ -10,7 +10,7 @@ export default function LoginLayout({
     <html lang="en">
       <body>
         <main>
-          <section className="main-container">
+          <section className="main-container-full">
             <div className="w-full max-w-4xl">{children}</div>
           </section>
         </main>

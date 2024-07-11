@@ -28,6 +28,10 @@ body {
 
 @layer components {
   .main-container {
+    @apply flex items-center justify-center;
+  }
+
+  .main-container-full {
     @apply flex min-h-screen items-center justify-center;
   }
 }

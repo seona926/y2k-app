@@ -5,6 +5,7 @@ import React, { useContext } from "react";
 // import { useNavigate } from "react-router-dom";
 // import styles from "../styles/main.module.css";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function MainPage() {
   const user = { nickname: "Sophia" }; // Assuming user info is stored here
@@ -74,6 +75,9 @@ export default function MainPage() {
           </div>
         ))}
       </div>
+      <button className="w-full h-11 bg-teal-500 text-slate-50 mt-8 mb-10 border-none text-xl font-bold rounded-md">
+        <Link href="/match">Find My Soulmate</Link>
+      </button>
     </>
   );
 }
