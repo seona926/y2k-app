@@ -8,11 +8,11 @@ const FindMatchesPage: React.FC = () => {
   const router = useRouter();
 
   const handleSelectQuestions = (numQuestions: number) => {
-    router.push(`/questions/${numQuestions}`); // Pass the number of questions as a URL parameter
+    router.push(`/match/questions/${numQuestions}`); // Pass the number of questions as a URL parameter
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-full">
       <div className="fixed top-4 left-4 lg:hidden">
         <Link href="/">
           <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition-colors duration-300">
