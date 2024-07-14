@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-gradient-to-t from-stone-50 to-teal-100 ${nanumGothic.className}`}
+        className={`bg-gradient-to-b from-emerald-50 to-red-100 ${nanumGothic.className}`}
       >
         <Topbar />
         <main className="flex-1">
