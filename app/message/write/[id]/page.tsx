@@ -5,15 +5,17 @@ import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function ReadMessage({ params: { id } }) {
+export default function WriteMessage({ params: { id } }) {
   const { userId } = useParams<{ userId: string }>();
   const [message, setMessage] = useState("");
   const router = useRouter();
-  const mockMessage =
-    "Hello Lee, This is Alison. How's your work going recently? Mine is fine, but sometime it's difficult, like everyone. haha🤣";
+  const [mockMessage, setMockMessage] = useState(
+    "Hello Alison, This is Lee. I'm little depressed these days because it's not going fine to move my company."
+  );
 
   const handleSendClick = (e: React.FormEvent) => {
-    router.push("/message/write/" + id);
+    alert("메세지 전송 완료👌");
+    router.push("/");
   };
 
   // useEffect(() => {
@@ -46,16 +48,16 @@ export default function ReadMessage({ params: { id } }) {
           </div>
         </Link>
       </div>
-      <div className="text-xl text-gray-700 font-bold mt-3">Read Message</div>
+      <div className="text-xl text-gray-700 font-bold mt-3">Write Message</div>
       <div className="h-3/4 w-full flex flex-col justify-end items-center mt-2.5 mb-2.5">
         <textarea
           value={mockMessage}
           className="w-3/4 h-full mt-8 p-4 bg-yellow-100/50 border border-gray-400 resize-none text-base"
-          readOnly
+          onChange={(e) => setMockMessage(e.target.value)}
         />
         <div className="w-full h-32 flex flex-row justify-center items-center">
           <button className="btn-open w-20" onClick={handleSendClick}>
-            REPLY
+            SEND
           </button>
           <button className="btn-cancel w-20" onClick={() => router.back()}>
             BACK
