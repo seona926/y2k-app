@@ -29,7 +29,7 @@ export default function MainPage() {
 
   return (
     <>
-      <div className="fixed top-4 left-4 lg:hidden">
+      {/* <div className="fixed top-4 left-4 lg:hidden z-20">
         <Link href="/">
           <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition-colors duration-300">
             <svg
@@ -48,7 +48,7 @@ export default function MainPage() {
             </svg>
           </div>
         </Link>
-      </div>
+      </div> */}
       <div className="text-xl text-gray-700 font-bold mt-3">My Profile</div>
       <div className="h-28 w-full md:h-32 flex justify-end items-center bg-white mt-2.5 mb-2.5 border border-gray-400 rounded bg-stone-100/70">
         <div className="flex flex-col items-end mr-3.5">
