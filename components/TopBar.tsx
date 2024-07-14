@@ -53,6 +53,9 @@ export default function Topbar() {
         <Link href="/" className="text-white hover:text-gray-300">
           My Page
         </Link>
+        <Link href="/" className="text-teal-300 hover:text-gray-300">
+          Logout
+        </Link>
       </div>
 
       {/* 햄버거 아이콘 - 화면이 작아질 때 보이게 처리 */}
@@ -82,13 +85,16 @@ export default function Topbar() {
         <div className="absolute top-full left-0 right-0 bg-gray-700 py-4 md:hidden">
           <div className="flex flex-col items-center gap-4">
             <Link href="/" className="text-white hover:text-gray-300">
-              메뉴1
+              Match
             </Link>
             <Link href="/" className="text-white hover:text-gray-300">
-              메뉴2
+              Something
             </Link>
             <Link href="/" className="text-white hover:text-gray-300">
-              메뉴3
+              My Page
+            </Link>
+            <Link href="/" className="text-teal-300 hover:text-gray-300">
+              Logout
             </Link>
           </div>
         </div>
