@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-t from-stone-50 to-teal-100">
+      <body className="bg-gradient-to-b from-emerald-50 to-red-100">
         {children}
       </body>
     </html>
