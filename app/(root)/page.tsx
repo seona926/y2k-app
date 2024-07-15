@@ -28,7 +28,7 @@ export default function MainPage() {
   };
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col justify-between">
       {/* <div className="fixed top-4 left-4 lg:hidden z-20">
         <Link href="/">
           <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition-colors duration-300">
@@ -63,8 +63,8 @@ export default function MainPage() {
           className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white p-2 object-cover border border-gray-400 mr-2.5"
         />
       </div>
-      <div className="text-xl text-gray-700 font-bold mt-6 mb-3">Messages</div>
-      <div className="grid grid-cols-1 gap-2.5 mb-16 w-full">
+      <div className="text-xl text-gray-700 font-bold mt-10 mb-3">Messages</div>
+      <div className="grid grid-cols-1 gap-2.5 mb-10 w-full">
         {chatRooms.map((room) => (
           <div
             key={room.id}
@@ -95,13 +95,15 @@ export default function MainPage() {
           </div>
         ))}
       </div>
-      <button
-        className="w-full max-w-md h-11 fixed bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 
-      focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 px-5 py-2.5 text-center me-2 mb-2 text-gray-700 mt-16
-      border-none text-xl font-bold rounded-md cursor-pointer"
-      >
-        <Link href="/match">FIND SOULMATE</Link>
-      </button>
-    </>
+      <div className="w-full flex justify-center p-5">
+        <button
+          className="w-full max-w-md h-11 fixed bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 
+        focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 px-5 py-2.5 text-center me-2 mb-2 text-gray-700 mt-10
+        border-none text-xl font-bold rounded-md cursor-pointer"
+        >
+          <Link href="/match">FIND SOULMATE</Link>
+        </button>
+      </div>
+    </div>
   );
 }

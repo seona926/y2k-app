@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "KISMET",
@@ -10,10 +11,12 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-gradient-to-b from-emerald-50 to-red-100">
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className="bg-gradient-to-b from-emerald-50 to-red-100">
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

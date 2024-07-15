@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { SignedIn, SignOutButton } from "@clerk/nextjs";
 
 export default function Topbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,17 +46,27 @@ export default function Topbar() {
       {/* 메뉴 - 화면이 작아질 때 숨김 처리 */}
       <div className="hidden md:flex flex-row justify-center gap-4 ml-8 w-62">
         <Link href="/" className="text-white hover:text-gray-300">
-          Match
+          MATCH
         </Link>
         <Link href="/" className="text-white hover:text-gray-300">
-          Something
+          SOMETHING
         </Link>
         <Link href="/" className="text-white hover:text-gray-300">
-          My Page
+          MY PAGE
         </Link>
-        <Link href="/" className="text-teal-300 hover:text-gray-300">
-          Logout
-        </Link>
+        <SignedIn>
+          <SignOutButton>
+            <div className="flex cursor-pointer text-white hover:text-teal-300">
+              <Image
+                src="/assets/logout.svg"
+                alt="logout"
+                width={20}
+                height={20}
+              />
+              <p className="text-light-2 ml-1 max-lg:hidden">LOGOUT</p>
+            </div>
+          </SignOutButton>
+        </SignedIn>
       </div>
 
       {/* 햄버거 아이콘 - 화면이 작아질 때 보이게 처리 */}
@@ -85,17 +96,21 @@ export default function Topbar() {
         <div className="absolute top-full left-0 right-0 bg-gray-700 py-4 md:hidden">
           <div className="flex flex-col items-center gap-4">
             <Link href="/" className="text-white hover:text-gray-300">
-              Match
+              MATCH
             </Link>
             <Link href="/" className="text-white hover:text-gray-300">
-              Something
+              SOMETHING
             </Link>
             <Link href="/" className="text-white hover:text-gray-300">
-              My Page
+              MY PAGE
             </Link>
-            <Link href="/" className="text-teal-300 hover:text-gray-300">
-              Logout
-            </Link>
+            <SignedIn>
+              <SignOutButton>
+                <div className="flex cursor-pointer text-white hover:text-teal-300">
+                  <p className="text-light-2 ml-1">LOGOUT</p>
+                </div>
+              </SignOutButton>
+            </SignedIn>
           </div>
         </div>
       )}

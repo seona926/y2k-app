@@ -70,8 +70,6 @@ export default function Questions({ params: { id } }) {
       text: "Which type of date do you want with your soulmate?",
     },
   ];
-  const mockOptions = {};
-
   const handleAnswerSelect = (questionId: number, option: string) => {
     setOptions((prev) => ({ ...prev, [questionId]: option }));
   };

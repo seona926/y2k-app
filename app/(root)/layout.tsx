@@ -13,25 +13,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [topbarHeight, setTopbarHeight] = useState(0);
-
-  useEffect(() => {
-    // Topbar의 높이를 가져오기 위해 DOM 요소를 사용하여 계산
-    const topbar = document.querySelector(".topbar");
-    if (topbar) {
-      const height = topbar.clientHeight;
-      setTopbarHeight(height);
-    }
-  }, []);
-
   return (
     <html lang="en">
       <body
-        className={`bg-gradient-to-b from-emerald-50 to-red-100 ${nanumGothic.className}`}
+        className={`bg-gradient-to-b from-emerald-50 to-red-100 min-h-screen flex flex-col ${nanumGothic.className}`}
       >
         <Topbar />
-        <main className="flex-1">
-          <section className="flex flex-row justify-center">
+        <main className="flex-grow flex flex-col justify-center">
+          <section className="flex flex-row justify-center flex-grow">
             <div className="w-full max-w-3xl p-5">{children}</div>
           </section>
         </main>

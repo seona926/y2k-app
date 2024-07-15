@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { SignIn } from "@clerk/nextjs";
 
 export default function Login() {
   return (
@@ -25,7 +26,7 @@ export default function Login() {
         </Link>
       </div>
       <div className="flex flex-col flex-auto items-center">
-        <h1 className="text-2xl">Login to our world 🐋</h1>
+        {/* <h1 className="text-2xl">Login to our world 🐋</h1>
         <input
           className="p-1 m-1 mt-7 w-4/12 rounded-md text-base"
           type="text"
@@ -40,7 +41,8 @@ export default function Login() {
           <Link href="/">
             <div>Login</div>
           </Link>
-        </button>
+        </button> */}
+        <SignIn />
       </div>
     </>
   );

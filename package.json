@@ -13,7 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "@prisma/client": "^5.17.0",
+=======
+    "@clerk/nextjs": "^5.2.3",
+>>>>>>> 8a4e81e (add: clerk signup, signout, signin 적용)
     "autoprefixer": "^10.4.19",
     "next": "^14.2.5",
     "postcss": "^8.4.39",
