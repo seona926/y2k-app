@@ -45,13 +45,13 @@ export default function Topbar() {
 
       {/* 메뉴 - 화면이 작아질 때 숨김 처리 */}
       <div className="hidden md:flex flex-row justify-center gap-4 ml-8 w-62">
-        <Link href="/" className="text-white hover:text-gray-300">
+        <Link href="/match" className="text-white hover:text-gray-300">
           MATCH
         </Link>
         <Link href="/" className="text-white hover:text-gray-300">
           SOMETHING
         </Link>
-        <Link href="/" className="text-white hover:text-gray-300">
+        <Link href="/mypage" className="text-white hover:text-gray-300">
           MY PAGE
         </Link>
         <SignedIn>
