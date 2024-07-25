@@ -13,5 +13,29 @@ model Question {
   id        BigInt   @id @default(autoincrement())
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   type      Decimal? @db.Decimal
-  content   String?  @db.VarChar
+  content   String?  @default("")
+  Option    Option[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Option {
+  id         BigInt   @id @default(autoincrement())
+  questionId BigInt
+  weight     Int?
+  createdAt  DateTime @default(now()) @db.Timestamptz(6)
+  Question   Question @relation(fields: [questionId], references: [id])
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model User {
+  id           BigInt   @id @default(autoincrement())
+  email        String?  @db.VarChar
+  name         String?  @db.VarChar
+  nickname     String?  @db.VarChar
+  introduction String?
+  sex          String?  @db.VarChar
+  birthYear    String?  @db.VarChar
+  nationality  String?  @db.VarChar
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
 }
