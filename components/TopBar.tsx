@@ -101,7 +101,7 @@ export default function Topbar() {
             <Link href="/" className="text-white hover:text-gray-300">
               SOMETHING
             </Link>
-            <Link href="/" className="text-white hover:text-gray-300">
+            <Link href="/mypage" className="text-white hover:text-gray-300">
               MY PAGE
             </Link>
             <SignedIn>
