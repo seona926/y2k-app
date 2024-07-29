@@ -28,7 +28,7 @@ export default function MainPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col start">
       {/* <div className="fixed top-4 left-4 lg:hidden z-20">
         <Link href="/">
           <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition-colors duration-300">
