@@ -11,9 +11,23 @@ import CountrySelector from "../../../components/selector";
 export default function MyPage() {
   const myRef = React.createRef<HTMLDivElement>();
 
+  const [image, setImage] = useState("/assets/profile.svg"); // 초기 이미지 URL
   const [isOpen, setIsOpen] = useState(false);
   // Default this to a country's code to preselect it
   const [country, setCountry] = useState("AF");
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (typeof reader.result === "string") {
+          setImage(reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center h-full w-full">
@@ -41,7 +55,7 @@ export default function MyPage() {
       <div className="flex flex-col items-center border border-gray-300 py-10 px-10 mx-8 h-3/4 min-h-72 w-3/4">
         <div className="flex flex-col items-center justify-center mb-6">
           <Image
-            src="/assets/profile.svg"
+            src={image}
             alt="logo"
             width={90}
             height={90}
@@ -62,6 +76,7 @@ export default function MyPage() {
               aria-describedby="user_avatar_help"
               id="user_avatar"
               type="file"
+              onChange={handleFileChange}
             />
           </form>
         </div>
