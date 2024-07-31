@@ -33,25 +33,25 @@ const FindMatchesPage: React.FC = () => {
           </div>
         </Link>
       </div>
-      <div className="text-2xl text-bold">질문 갯수를 골라주세요!</div>
+      <div className="text-2xl font-semibold mb-10">Please choose the number of questions!</div>
       <div className="flex flex-col items-center justify-center h-2/6">
         <button
           className="h-11 w-96 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
           onClick={() => handleSelectQuestions(10)}
         >
-          10개 👉 간단하게!
+          10 👉 I want to find my friend quickly!
         </button>
         <button
           className="h-11 w-96 mt-5 mb-5 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
           onClick={() => handleSelectQuestions(15)}
         >
-          15개 👉 보다 정밀하게!
+          15 👉 I want to find my friend precisely!
         </button>
         <button
           className="h-11 w-96 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
           onClick={() => handleSelectQuestions(20)}
         >
-          20개 👉 나와 꼭맞는 단짝 찾기!
+          20 👉 I want to find my soulmate!
         </button>
       </div>
     </div>
