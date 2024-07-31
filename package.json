@@ -16,6 +16,7 @@
     "@clerk/nextjs": "^5.2.8",
     "@prisma/client": "^5.17.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@clerk/nextjs": "^5.2.3",
 <<<<<<< HEAD
 >>>>>>> 8a4e81e (add: clerk signup, signout, signin 적용)
@@ -23,11 +24,16 @@
 >>>>>>> f4d26d7 (fix: conflict)
 =======
 >>>>>>> 093c3fa (add: mypage > 레이아웃 수정)
+=======
+    "@types/chart.js": "^2.9.41",
+>>>>>>> 2ec2309 (mod: 메인 요소, 디자인 수정)
     "autoprefixer": "^10.4.19",
+    "chart.js": "^4.4.3",
     "framer-motion": "^11.3.2",
     "next": "^14.2.5",
     "postcss": "^8.4.39",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "tailwind": "^4.0.0",
     "tailwindcss": "^3.4.4",
@@ -37,6 +43,7 @@
   "devDependencies": {
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
+    "@types/react-chartjs-2": "^2.5.7",
     "@types/react-dom": "^18.3.0",
     "prisma": "^5.17.0"
   }

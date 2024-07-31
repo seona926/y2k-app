@@ -32,42 +32,102 @@ export default function Questions({ params: { id } }) {
     {
       id: 1,
       text: "How many times do you want to meet your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 2,
       text: "How much time do you want to spend your time on your weekends or vacation with your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 3,
       text: "Which type of date do you want with your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 4,
       text: "How many times do you want to meet your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 5,
       text: "How much time do you want to spend your time on your weekends or vacation with your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 6,
       text: "Which type of date do you want with your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 7,
       text: "Which type of date do you want with your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 8,
       text: "How many times do you want to meet your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 9,
       text: "How much time do you want to spend your time on your weekends or vacation with your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
     {
       id: 10,
       text: "Which type of date do you want with your soulmate?",
+      options: [
+        "1 time a week or less is enough!",
+        "At least 2 times a week if possible.",
+        "More than 2 times!",
+        "I want to live with my soulmate!"
+      ]
     },
   ];
   const handleAnswerSelect = (questionId: number, option: string) => {
@@ -93,17 +153,26 @@ export default function Questions({ params: { id } }) {
 
   return (
     <div className="flex flex-col">
+      <div className="mt-8 text-2xl font-bold mb-8 text-center">Choose one option!</div>
       <div className="question-page-content">
         {currentQuestions.map((question) => (
-          <div key={question.id}>
-            <p>
+          <div key={question.id} className="mb-5">
+            <p className="text-lg font-semibold mb-2">
               {question.id}. {question.text}
             </p>
+            <div>
+            {question.options?.map((option, index) => (
+              <div key={index} className="mb-1">
+                <input type="radio" className="mr-1" id={`question${question.id}_option${index}`} name={`question${question.id}`} />
+                <label htmlFor={`question${question.id}_option${index}`}>{option}</label>
+              </div>
+            ))}
+            </div>
           </div>
         ))}
       </div>
       <button
-        className="mt-20"
+        className="w-16 h-10 mt-10 mb-10 border border-gray-500 rounded-md"
         onClick={
           currentSetIndex + 5 < mockQuestions.length ? handleNext : handleSubmit
         }

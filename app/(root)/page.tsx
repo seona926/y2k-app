@@ -6,94 +6,105 @@ import React, { useContext } from "react";
 // import styles from "../styles/main.module.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import DoughnutChart from '../../components/DoughnutChart';
+import {
+  ChartOptions,
+  ChartData
+} from 'chart.js';
 
 export default function MainPage() {
-  const user = { nickname: "Sophia" }; // Assuming user info is stored here
   const router = useRouter();
 
-  const chatRooms = [
-    { id: 1, nickname: "EPIKHIGH", message: "오늘은 좀 어떻게 지내고있어?" },
-    { id: 2, nickname: "SOPHIA", message: "아~~~ 오늘 아침에 지각했어" },
-    {
-      id: 3,
-      nickname: "OMGOMG",
-      message: "이번 주말에 우리 듄2 보러가자 ㅋㅋㅋ",
-    },
-    { id: 4, nickname: "NewJeans", message: "나는 베트남여행이 더 좋은듯?" },
-    { id: 5, nickname: "__GoodGood___", message: "커피땡긴다 ㅋㅋ ㅠㅠ" },
-  ];
-
-  const handleSendClick = () => {
-    router.push("/message/read/l_eein1234");
+  const ageData: ChartData<'doughnut'> = {
+    labels: ['Teens', '20s', '30s', '40s', '50+'],
+    datasets: [
+      {
+        label: 'Age Distribution',
+        data: [15, 30, 25, 20, 10], // 임의의 비율
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
   };
 
+  const genderData: ChartData<'doughnut'> = {
+    labels: ['Male', 'Female', 'Other'],
+    datasets: [
+      {
+        label: 'Gender Distribution',
+        data: [40, 50, 10], // 임의의 비율
+        backgroundColor: [
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 159, 64, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options: ChartOptions<'doughnut'> = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: '소울메이트 만나기 통계',
+      },
+    },
+  };
+
+
   return (
-    <div className="min-h-screen flex flex-col start">
-      {/* <div className="fixed top-4 left-4 lg:hidden z-20">
-        <Link href="/">
-          <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition-colors duration-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-gray-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </div>
-        </Link>
-      </div> */}
-      <div className="text-xl text-gray-700 font-bold mt-3">My Profile</div>
-      <div className="h-28 w-full md:h-32 flex justify-end items-center bg-white mt-2.5 mb-2.5 border border-gray-400 rounded bg-stone-100/70">
-        <div className="flex flex-col items-end mr-3.5">
-          <span className="text-xl text-gray-700 font-bold">
-            {user?.nickname || "Lisboa"}
-          </span>
-          <span className="text-lg">I&apos;m looking for freedom</span>
-        </div>
-        <img
-          src="https://api.dicebear.com/8.x/pixel-art/svg?seed=James.svg"
-          alt="Avatar"
-          className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white p-2 object-cover border border-gray-400 mr-2.5"
-        />
-      </div>
-      <div className="text-xl text-gray-700 font-bold mt-10 mb-3">Messages</div>
+    <div className="min-h-screen flex flex-col start text-center text-neutral-600 dark:text-neutral-200">
+      {/*  Main headings  */}
+      <div id="main-text" className="text-4xl font-bold mb-5 mt-10">Somewhere, your soulmate is out there...</div>
+      <h4 className="text-lg italic text-neutral-500 dark:text-neutral-400 mb-10">Take a moment and meet that one!</h4>
       <div className="grid grid-cols-1 gap-2.5 mb-10 w-full">
-        {chatRooms.map((room) => (
-          <div
-            key={room.id}
-            className="h-20 w-full flex p-5 items-center justify-between bg-stone-50 rounded-lg shadow-md my-0.5 relative text-sm"
-            onClick={handleSendClick}
-          >
-            <div className="flex flex-row w-full">
-              <span className="flex p-1.5 items-center justify-center absolute top-[12%] left-[-0.2%] transform translate-x-[-50%] translate-y-[-50%] z-10 bg-red-600 text-white text-xs font-bold w-5 h-5 rounded-full">
-                N
-              </span>
-              <img
-                src={`https://api.dicebear.com/8.x/pixel-art/svg?seed=John${room.id}-${room.nickname}.svg`}
-                alt="Avatar"
-                className="w-14 h-14 rounded-full border border-gray-400 bg-white p-0.5 object-cover mr-2.5"
-              />
-              <div className="ml-2.5 w-[59%]">
-                <div className="text-lg font-bold mb-1.25">{room.nickname}</div>
-                <p style={{ margin: "0px" }}>
-                  {room.message.length > 20
-                    ? `${room.message.slice(0, 25)}...`
-                    : room.message}
-                </p>
+        <div>
+          <div className="border border-cyan-500 rounded-xl">
+            <h1 className="font-bold mt-10 text-xl"><span className="italic text-cyan-600">This month,</span> 1,335 people met their soulmates!</h1>
+            <div className="flex justify-center items-center pb-5">
+              <div style={{ width: '40%', margin: 'auto' }}>
+                <DoughnutChart data={ageData} options={options} />
+              </div>
+              <div style={{ width: '40%', margin: 'auto', marginTop: '50px' }}>
+                <DoughnutChart data={genderData} options={options} />
               </div>
             </div>
-            <div className="hidden md:block btn-open" onClick={handleSendClick}>
-              OPEN
+          </div>
+          <div className="border border-cyan-500 rounded-xl mt-7">
+            <h1 className="font-bold mt-10 text-xl"><span className="italic text-cyan-600">This year,</span> 3,434 people met their soulmates!</h1>
+            <div className="flex justify-center items-center pb-5">
+              <div style={{ width: '40%', margin: 'auto' }}>
+                <DoughnutChart data={ageData} options={options} />
+              </div>
+              <div style={{ width: '40%', margin: 'auto', marginTop: '50px' }}>
+                <DoughnutChart data={genderData} options={options} />
+              </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
       <div className="w-full flex justify-center p-5">
         <button
