@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@clerk/nextjs": "^5.2.8",
+<<<<<<< HEAD
     "@prisma/client": "^5.17.0",
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -25,6 +26,10 @@
 =======
 >>>>>>> 093c3fa (add: mypage > 레이아웃 수정)
 =======
+=======
+    "@prisma/client": "^5.18.0",
+    "@tanstack/react-query": "^5.51.21",
+>>>>>>> a7d32bb (add: question api 연결 및 질문 5개씩 노출)
     "@types/chart.js": "^2.9.41",
 >>>>>>> 2ec2309 (mod: 메인 요소, 디자인 수정)
     "autoprefixer": "^10.4.19",
@@ -38,7 +43,8 @@
     "tailwind": "^4.0.0",
     "tailwindcss": "^3.4.4",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",

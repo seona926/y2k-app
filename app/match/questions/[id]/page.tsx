@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useQuestionStore } from "../../../../stores/questionStore";
 
 interface Question {
   id: number;
@@ -18,15 +19,24 @@ interface Option {
   option5: string;
 }
 
+const fetchQuestions = async () => {
+  const response = await fetch('/api/question');
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+};
+
 export default function Questions({ params: { id } }) {
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
-  const [options, setOptions] = useState<{ [key: string]: string }>({});
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const questionsPerPage = 5;
+
+  const setQuestions = useQuestionStore((state) => state.setQuestions);
+  const questions = useQuestionStore((state) => state.questions);
+  
   const router = useRouter();
   const [totalQuestions, setTotalQuestions] = useState<number>(10);
-  const handleNext = () => {
-    setCurrentSetIndex((prevIndex) => prevIndex + 5);
-  };
+
 
   const mockQuestions = [
     {
@@ -130,54 +140,77 @@ export default function Questions({ params: { id } }) {
       ]
     },
   ];
-  const handleAnswerSelect = (questionId: number, option: string) => {
-    setOptions((prev) => ({ ...prev, [questionId]: option }));
+
+
+  // 현재 페이지의 질문들을 가져오는 함수
+  const getCurrentQuestions = () => {
+    return questions.slice(currentSetIndex, currentSetIndex + questionsPerPage);
+  };
+
+  // 다음 페이지로 이동하는 함수
+  const handleNext = () => {
+    if (currentSetIndex + questionsPerPage < questions.length) {
+      setCurrentSetIndex(currentSetIndex + questionsPerPage);
+    }
   };
 
   // 현재 페이지의 질문들을 가져오기
-  const currentQuestions = mockQuestions.slice(
-    currentSetIndex,
-    currentSetIndex + 5
-  );
+  const currentQuestions = getCurrentQuestions();
 
-  console.log("question id: ", id);
+  // 마지막 페이지 확인
+  const isLastPage = currentSetIndex + questionsPerPage >= questions.length;
 
   const handleSubmit = () => {
-    const nextSetIndex = currentSetIndex + 3;
-    if (nextSetIndex < totalQuestions) {
-      setCurrentSetIndex(nextSetIndex);
-    } else {
-      router.push("/results");
-    }
+    router.push("/results");
   };
+
+  useEffect(() => {
+    const getQuestions = async () => {
+      try {
+        const data = await fetchQuestions();
+        setQuestions(data);
+        console.log(data)
+      } catch (error) {
+        console.error('Failed to fetch questions:', error);
+      }
+    };
+
+    getQuestions();
+  }, [setQuestions]);
+
+  // if (questions.length === 0) return <div>Loading...</div>;/
 
   return (
     <div className="flex flex-col">
       <div className="mt-8 text-2xl font-bold mb-8 text-center">Choose one option!</div>
       <div className="question-page-content">
-        {currentQuestions.map((question) => (
+        {currentQuestions.map((question: any) => (
           <div key={question.id} className="mb-5">
             <p className="text-lg font-semibold mb-2">
-              {question.id}. {question.text}
+              {question.id}. {question.content}
             </p>
             <div>
-            {question.options?.map((option, index) => (
-              <div key={index} className="mb-1">
-                <input type="radio" className="mr-1" id={`question${question.id}_option${index}`} name={`question${question.id}`} />
-                <label htmlFor={`question${question.id}_option${index}`}>{option}</label>
-              </div>
-            ))}
+              {question.Option?.map((option, index) => (
+                <div key={index} className="mb-1">
+                  <input 
+                    type="radio" className="mr-1" 
+                    id={`question${question.id}_option${index}`} 
+                    name={`question${question.id}`} 
+                  />
+                  <label htmlFor={`question${question.id}_option${index}`}>
+                    {option.content}
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
         ))}
       </div>
       <button
         className="w-16 h-10 mt-10 mb-10 border border-gray-500 rounded-md"
-        onClick={
-          currentSetIndex + 5 < mockQuestions.length ? handleNext : handleSubmit
-        }
+        onClick={isLastPage ? handleSubmit : handleNext}
       >
-        {currentSetIndex + 5 < mockQuestions.length ? "NEXT" : "SUBMIT"}
+        {isLastPage ? "FINISH" : "NEXT"}
       </button>
     </div>
   );
