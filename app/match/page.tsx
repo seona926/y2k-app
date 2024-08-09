@@ -33,25 +33,14 @@ const FindMatchesPage: React.FC = () => {
           </div>
         </Link>
       </div>
-      <div className="text-2xl font-semibold mb-10">Please choose the number of questions!</div>
-      <div className="flex flex-col items-center justify-center h-2/6">
+      <div id="main-text" className="text-4xl font-bold mb-5 mt-10">To find your soulmate...</div>
+      <h4 className="text-lg italic text-neutral-500 dark:text-neutral-400 mb-10 text-center">We will ask you 40 questions.<br /> Please take your time and choose the answer that is closest to you. <br />And Find out which person is most like you.</h4>
+      <div className="flex flex-col items-center justify-center h-1/6">
         <button
-          className="h-11 w-96 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
-          onClick={() => handleSelectQuestions(10)}
+          className="h-11 w-96 text-base font-bold text-neutral-700 bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
+          onClick={() => handleSelectQuestions(40)}
         >
-          10 👉 I want to find my friend quickly!
-        </button>
-        <button
-          className="h-11 w-96 mt-5 mb-5 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
-          onClick={() => handleSelectQuestions(15)}
-        >
-          15 👉 I want to find my friend precisely!
-        </button>
-        <button
-          className="h-11 w-96 text-base text-bold bg-stone-100 rounded-md shadow-sm hover:bg-indigo-100"
-          onClick={() => handleSelectQuestions(20)}
-        >
-          20 👉 I want to find my soulmate!
+          Start!
         </button>
       </div>
     </div>
@@ -59,26 +48,3 @@ const FindMatchesPage: React.FC = () => {
 };
 
 export default FindMatchesPage;
-
-/*
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-a {
-  padding: 10px;
-  background-color: #27ae60;
-  color: #fff;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
-}
-
-
-*/

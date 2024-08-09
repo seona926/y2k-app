@@ -14,29 +14,9 @@
   "license": "ISC",
   "dependencies": {
     "@clerk/nextjs": "^5.2.8",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "@prisma/client": "^5.17.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "@clerk/nextjs": "^5.2.3",
-<<<<<<< HEAD
->>>>>>> 8a4e81e (add: clerk signup, signout, signin 적용)
-=======
->>>>>>> f4d26d7 (fix: conflict)
-=======
->>>>>>> 093c3fa (add: mypage > 레이아웃 수정)
-=======
-=======
     "@prisma/client": "^5.18.0",
     "@tanstack/react-query": "^5.51.21",
->>>>>>> a7d32bb (add: question api 연결 및 질문 5개씩 노출)
-=======
-    "@prisma/client": "^5.18.0",
-    "@tanstack/react-query": "^5.51.21",
->>>>>>> a7d32bb (add: question api 연결 및 질문 5개씩 노출)
     "@types/chart.js": "^2.9.41",
->>>>>>> 2ec2309 (mod: 메인 요소, 디자인 수정)
     "autoprefixer": "^10.4.19",
     "chart.js": "^4.4.3",
     "framer-motion": "^11.3.2",
