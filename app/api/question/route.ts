@@ -8,7 +8,7 @@ export async function GET() {
   try {
     const questions = await prisma.question.findMany({
       include: {
-        Option: true, // options 테이블과의 관계를 포함하여 데이터를 가져옵니다
+        Option: true, // option 테이블과의 관계를 포함
       },
     });
     return NextResponse.json(questions);
@@ -16,6 +16,6 @@ export async function GET() {
     console.error('Failed to fetch questions:', error);
     return NextResponse.json({ error: 'Failed to fetch questions' }, { status: 500 });
   } finally {
-    await prisma.$disconnect(); // 데이터베이스 연결을 닫습니다.
+    await prisma.$disconnect();
   }
 }

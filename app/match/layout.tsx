@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className="bg-gradient-to-b from-emerald-50 to-red-100">
         <Topbar />
         <main
-          className="flex-grow flex flex-col justify-center h-full"
+          className="flex-grow flex flex-col justify-center"
         >
           <section className="main-container w-full h-full">
             <div className="w-full h-full max-w-4xl flex flex-col justify-center items-center">

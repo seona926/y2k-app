@@ -29,7 +29,7 @@ const fetchQuestions = async () => {
 
 export default function Questions({ params: { id } }) {
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
-  const questionsPerPage = 5;
+  const questionsPerPage = 3;
 
   const setQuestions = useQuestionStore((state) => state.setQuestions);
   const questions = useQuestionStore((state) => state.questions);
@@ -181,23 +181,26 @@ export default function Questions({ params: { id } }) {
   // if (questions.length === 0) return <div>Loading...</div>;/
 
   return (
-    <div className="flex flex-col">
-      <div className="mt-8 text-2xl font-bold mb-8 text-center">Choose one option!</div>
-      <div className="question-page-content">
+    <div className="flex flex-col justify-center items-center">
+      <div className="mt-20 mb-16 text-center text-4xl font-extrabold dark:text-white">Choose one option!</div>
+      <div className="question-page-content flex flex-col justify-center items-center">
         {currentQuestions.map((question: any) => (
-          <div key={question.id} className="mb-5">
+          <div key={question.id} className="mb-7">
             <p className="text-lg font-semibold mb-2">
               {question.id}. {question.content}
             </p>
             <div>
               {question.Option?.map((option, index) => (
-                <div key={index} className="mb-1">
+                <div key={index} className="mb-1 flex flex-row items-center justify-center">
                   <input 
-                    type="radio" className="mr-1" 
+                    type="radio"
+                    className="w-4 h-4 mr-2 flex flex-col justify-center items-center text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
                     id={`question${question.id}_option${index}`} 
-                    name={`question${question.id}`} 
+                    name="default-radio"
                   />
-                  <label htmlFor={`question${question.id}_option${index}`}>
+                  <label 
+                    htmlFor={`question${question.id}_option${index}`} 
+                    className="text-md font-semibold text-gray-600 dark:text-gray-300">
                     {option.content}
                   </label>
                 </div>
